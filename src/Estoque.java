@@ -15,10 +15,10 @@ public class Estoque {
             case "1" -> { // O usuário insere um smartphone no estoque
                 try{
                     System.out.println("\nInsira as informações do Smartphone a ser inserido:");
-                    System.out.print("Modelo: ");
-                    String modelo = scan.nextLine();
                     System.out.print("Marca: ");
                     String marca = scan.nextLine();
+                    System.out.print("Modelo: ");
+                    String modelo = scan.nextLine();
                     System.out.print("Valor: ");
                     double preco = Double.parseDouble(scan.nextLine());
 
