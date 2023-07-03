@@ -1,14 +1,15 @@
 public class Laptop implements Produto{
-    String modelo;
+    String modelo, marca;
     double preco, tela;
 
-    public Laptop(String modelo, double tela, double preco){
+    public Laptop(String marca, String modelo, double tela, double preco){
+        this.marca = marca;
         this.modelo = modelo;
         this.tela = tela;
         this.preco = preco;
     }
 
-    public String obterNome(){
+    public String obterModelo(){
         return modelo;
     }
 
@@ -20,11 +21,7 @@ public class Laptop implements Produto{
         return tela;
     }
 
-    public double calcularDesconto(double valorTot){
-        return valorTot-(valorTot/5);
-    }
-
     public String toString(){
-        return "Tipo: Laptop\nModelo: " + modelo + "\nTamanho da tela: " + tela + " polegadas\nPreço: R$" + String.format("%.2f", preco) + "\n";
+        return "Tipo: Laptop\nMarca: " + marca + "\nModelo: " + modelo + "\nTamanho da tela: " + String.format("%.1f", tela) + " polegadas\nPreço: R$" + String.format("%.2f", preco) + "\n";
     }
 }

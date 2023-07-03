@@ -1,9 +1,7 @@
 public interface Produto {
-    public String obterNome();
+    String obterModelo();
 
-    public double obterPreco();
+    double obterPreco();
 
-    public double calcularDesconto(double valorTot);
-
-    public String toString(); // Sobrescrever o método toString da classe Java permite uma maneira mais fácil de retornar toodo o conteúdo dos objetos
+    String toString(); // Sobrescrever o método toString da classe Java permite uma maneira mais fácil de retornar toodo o conteúdo dos objetos
 }

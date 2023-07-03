@@ -1,23 +1,19 @@
 public class Smartphone implements Produto{
-    String nome, marca;
+    String modelo, marca;
     double preco;
 
-    public Smartphone(String nome, String marca, double preco){
-        this.nome = nome;
+    public Smartphone(String modelo, String marca, double preco){
+        this.modelo = modelo;
         this.marca = marca;
         this.preco = preco;
     }
 
-    public String obterNome(){
-        return nome;
+    public String obterModelo(){
+        return modelo;
     }
 
     public double obterPreco(){
         return preco;
-    }
-
-    public double calcularDesconto(double valorTot){
-        return valorTot-(valorTot/5);
     }
 
     public String obterMarca(){
@@ -25,6 +21,6 @@ public class Smartphone implements Produto{
     }
 
     public String toString() {
-        return "Tipo: Smartphone\nNome: " + nome + "\nMarca: " + marca + "\nPreço: R$" + String.format("%.2f", preco) + "\n";
+        return "Tipo: Smartphone\nMarca: " + marca + "\nModelo: " + modelo + "\nPreço: R$" + String.format("%.2f", preco) + "\n";
     }
 }

@@ -28,7 +28,7 @@ public class Main {
                     default -> System.out.println("\nOpção inválida.\n");
                 }
             }catch(InputMismatchException e){ // Se o input do usuário não for um inteiro
-                System.out.println("\nOpção inválida.\n");
+                System.out.println("\nEntrada inválida.\n");
                 scan.next();
             }
         }while(opcao!=4);
