@@ -20,6 +20,8 @@ public class Estoque {
         System.out.println("\n(1) Smartphone");
         System.out.println("(2) Laptop");
         System.out.println("(3) Monitor");
+        System.out.println("(4) Teclado Bluetooth");
+        System.out.println("(5) Fone Bluetooth");
         System.out.println("(0) Retornar ao menu");
         System.out.print("Insira uma opção: ");
 
@@ -78,6 +80,60 @@ public class Estoque {
 
                         lista.add(new Monitor(marca, modelo, tela, preco));
                         System.out.println("\nMonitor inserido no estoque com sucesso.\n");
+                    }catch(NumberFormatException e){
+                        System.out.println("\nEntrada inválida. Retornando ao menu...\n");
+                    }
+                }
+                case 4 -> {
+                    try{
+                        System.out.println("\nInsira as informações do Teclado Bluetooth a ser inserido:");
+                        System.out.print("Marca: ");
+                        String marca = scan.nextLine();
+                        System.out.print("Modelo: ");
+                        String modelo = scan.nextLine();
+                        System.out.print("Tipo: ");
+                        String tipo = scan.nextLine();
+
+                        boolean rgb = false;
+                        do{
+                            System.out.print("É RGB? (Sim ou Não): ");
+                            String temp = scan.nextLine();
+
+                            if(temp.equalsIgnoreCase("sim")){
+                                rgb = true;
+                                break;
+                            }else if(temp.equalsIgnoreCase("não") || temp.equalsIgnoreCase("nao")){
+                                break;
+                            }else{
+                                System.out.println("Entrada inválida. Tente novamente.");
+                            }
+                        }while(true);
+
+                        System.out.print("Autonomia da bateria (em horas): ");
+                        double duracaoBateria = Double.parseDouble(scan.nextLine());
+                        System.out.print("Preço: ");
+                        double preco = Double.parseDouble(scan.nextLine());
+
+                        lista.add(new Teclado(marca, modelo, tipo, rgb, preco, duracaoBateria));
+                        System.out.println("\nTeclado Bluetooth inserido no estoque com sucesso.\n");
+                    }catch(NumberFormatException e){
+                        System.out.println("\nEntrada inválida. Retornando ao menu...\n");
+                    }
+                }
+                case 5 -> {
+                    try{
+                        System.out.println("\nInsira as informações do Fone Bluetooth a ser inserido:");
+                        System.out.print("Marca: ");
+                        String marca = scan.nextLine();
+                        System.out.print("Modelo: ");
+                        String modelo = scan.nextLine();
+                        System.out.print("Autonomia da bateria (em horas): ");
+                        double duracaoBateria = Double.parseDouble(scan.nextLine());
+                        System.out.print("Preço: ");
+                        double preco = Double.parseDouble(scan.nextLine());
+
+                        lista.add(new FoneBluetooth(marca, modelo, preco, duracaoBateria));
+                        System.out.println("\nFone Bluetooth inserido no estoque com sucesso.\n");
                     }catch(NumberFormatException e){
                         System.out.println("\nEntrada inválida. Retornando ao menu...\n");
                     }
