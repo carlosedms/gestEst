@@ -18,6 +18,19 @@ O objetivo principal é fornecer uma interface simples e intuitiva para a gestã
 
 Este código pode ser utilizado como base para desenvolver sistemas de gestão de estoque mais complexos, adicionando novas funcionalidades conforme necessário.
 
+## Diagrama de Classes
+
+Aqui está o diagrama de classes que ilustra o relacionamento entre as classes do sistema:
+
+![Diagrama de Classes](https://drive.google.com/uc?export=view&id=1p1XFcI_AzKNZ5glLxqyfiPZchI7DPe1t)
+
+O diagrama de classes mostra as classes do sistema e os relacionamentos entre elas. Nesse caso, as setas indicam a direção da associação entre as classes. É possível observar a herança entre as classes `Produto`, `Smartphone`, `Laptop` e `Monitor`, onde as subclasses herdam os atributos e métodos da classe pai.
+
+Além disso, a classe `Estoque` possui uma composição com a classe `ArrayList`, indicando que o estoque é composto por objetos da classe `Produto`. Essa composição permite armazenar e manipular os produtos no estoque de forma conveniente.
+
+O diagrama de classes é uma ferramenta útil para visualizar a estrutura do sistema e entender os relacionamentos entre as classes. Ele auxilia no design e na implementação do código, fornecendo uma visão geral das entidades e suas interações.
+
+
 ## Observações
 
 - Cada classe está em um arquivo separado para melhor organização e manutenção do código.
