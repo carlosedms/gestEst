@@ -12,7 +12,7 @@ public class Main {
             System.out.println("(1) Adicionar produto ao estoque");
             System.out.println("(2) Listar produtos no estoque");
             System.out.println("(3) Remover produto do estoque");
-            System.out.println("(4) Finalizar programa");
+            System.out.println("(0) Finalizar programa");
             System.out.print("Insira uma opção: ");
 
             try{
@@ -22,7 +22,7 @@ public class Main {
                     case 1 -> noEstoque.adicionarProduto();
                     case 2 -> noEstoque.listarProdutos();
                     case 3 -> noEstoque.removerProduto();
-                    case 4 -> {
+                    case 0 -> {
                         System.out.println("\nFinalizando programa.");
                     }
                     default -> System.out.println("\nOpção inválida.\n");
@@ -31,6 +31,6 @@ public class Main {
                 System.out.println("\nEntrada inválida.\n");
                 scan.next();
             }
-        }while(opcao!=4);
+        }while(opcao!=0);
     }
 }
