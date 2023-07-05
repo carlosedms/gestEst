@@ -6,7 +6,7 @@ public class Main {
         Scanner scan = new Scanner(System.in); // Scanner iniciado para receber inputs do usuário
 
         Estoque noEstoque = new Estoque(); // Objeto estoque é criado para armazenar e interagir com os itens
-        int opcao=0; // Variável usada para escolha de opção no menu (em formato de string pra simplificar o tratamento, eu fiz antes de descobrir como usava os tratamentos de exceções)
+        int opcao=-1; // Variável usada para escolha de opção no menu (em formato de string pra simplificar o tratamento, eu fiz antes de descobrir como usava os tratamentos de exceções)
 
         do{ // Loop do menu
             System.out.println("(1) Adicionar produto ao estoque");
