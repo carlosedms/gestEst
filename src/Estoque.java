@@ -1,4 +1,7 @@
 import java.util.ArrayList;
+import java.util.Map;
+import java.util.HashMap;
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -6,13 +9,20 @@ public class Estoque {
     Scanner scan = new Scanner(System.in);
     ArrayList<Produto> lista = new ArrayList<>(); // É iniciada uma ArrayList de objetos da classe "Produto" que funcionará como estoque, guardando todos os objetos das subclasses de Produto.
     int opcao = 0;
-
+    
+    Map<String, Integer> qtdEstoque = new HashMap<>();
+    
     private void imprimirEstoque(){ // método utilizado somente nesta classe
         System.out.println("\nLista de itens atualmente no estoque:\n");
         for (int i = 0; i < lista.size(); i++) {
             System.out.print("----------- Item " + (i + 1) + " -----------\n");
             System.out.println(lista.get(i));
         }
+    }
+    
+    private void atualizaEstoque(Produto produto) {
+        String tipoProduto = produto.getClass().getSimpleName();
+        qtdEstoque.put(tipoProduto, qtdEstoque.getOrDefault(tipoProduto, 0) + 1);
     }
 
     public void adicionarProduto() {
@@ -40,7 +50,9 @@ public class Estoque {
                         System.out.print("Valor: ");
                         double preco = Double.parseDouble(scan.nextLine());
 
-                        lista.add(new Smartphone(modelo, marca, preco));
+                        Smartphone s = new Smartphone(modelo, marca, preco);
+                        lista.add(s);
+                        atualizaEstoque(s);
                         System.out.println("\nSmartphone inserido no estoque com sucesso.\n");
 
                     } catch (NumberFormatException e) {
@@ -59,7 +71,9 @@ public class Estoque {
                         System.out.print("Valor: ");
                         double preco = Double.parseDouble(scan.nextLine());
 
-                        lista.add(new Laptop(marca, modelo, tela, preco));
+                        Laptop l = new Laptop(marca, modelo, tela, preco);
+                        lista.add(l);
+                        atualizaEstoque(l);
                         System.out.println("\nLaptop inserido no estoque com sucesso.\n");
 
                     } catch (NumberFormatException e) {
@@ -77,8 +91,10 @@ public class Estoque {
                         double tela = Double.parseDouble(scan.nextLine());
                         System.out.print("Preço: ");
                         double preco = Double.parseDouble(scan.nextLine());
-
-                        lista.add(new Monitor(marca, modelo, tela, preco));
+                        
+                        Monitor m = new Monitor(marca, modelo, tela, preco);
+                        lista.add(m);
+                        atualizaEstoque(m);
                         System.out.println("\nMonitor inserido no estoque com sucesso.\n");
                     }catch(NumberFormatException e){
                         System.out.println("\nEntrada inválida. Retornando ao menu...\n");
@@ -113,8 +129,10 @@ public class Estoque {
                         double duracaoBateria = Double.parseDouble(scan.nextLine());
                         System.out.print("Preço: ");
                         double preco = Double.parseDouble(scan.nextLine());
-
-                        lista.add(new Teclado(marca, modelo, tipo, rgb, preco, duracaoBateria));
+                        
+                        Teclado t = new Teclado(marca, modelo, tipo, rgb, preco, duracaoBateria);
+                        lista.add(t);
+                        atualizaEstoque(t);
                         System.out.println("\nTeclado Bluetooth inserido no estoque com sucesso.\n");
                     }catch(NumberFormatException e){
                         System.out.println("\nEntrada inválida. Retornando ao menu...\n");
@@ -131,8 +149,11 @@ public class Estoque {
                         double duracaoBateria = Double.parseDouble(scan.nextLine());
                         System.out.print("Preço: ");
                         double preco = Double.parseDouble(scan.nextLine());
-
-                        lista.add(new FoneBluetooth(marca, modelo, preco, duracaoBateria));
+                        
+                        FoneBluetooth fone = new FoneBluetooth(marca, modelo, preco, duracaoBateria);
+                        lista.add(fone);
+                        atualizaEstoque(fone);
+                        
                         System.out.println("\nFone Bluetooth inserido no estoque com sucesso.\n");
                     }catch(NumberFormatException e){
                         System.out.println("\nEntrada inválida. Retornando ao menu...\n");
@@ -146,6 +167,8 @@ public class Estoque {
         } catch(NumberFormatException e){
             System.out.println("\nEntrada inválida. Retornando ao menu...\n");
         }
+        
+        
 
     }
 
@@ -179,6 +202,15 @@ public class Estoque {
             System.out.println("\nO estoque está vazio.\n");
         }else {
             imprimirEstoque();
+        }
+    }
+    
+ // Novo método para resumir o estoque
+    public void resumirEstoque() {
+        System.out.println("\nResumo do estoque:\n");
+        for (String tipoProduto : qtdEstoque.keySet()) {
+            int quantidade = qtdEstoque.get(tipoProduto);
+            System.out.println(tipoProduto + ": " + quantidade);
         }
     }
 

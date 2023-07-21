@@ -12,6 +12,7 @@ public class Main {
             System.out.println("(1) Adicionar produto ao estoque");
             System.out.println("(2) Listar produtos no estoque");
             System.out.println("(3) Remover produto do estoque");
+            System.out.println("(4) Resumo dos produtos em estoque");
             System.out.println("(0) Finalizar programa");
             System.out.print("Insira uma opção: ");
 
@@ -22,6 +23,7 @@ public class Main {
                     case 1 -> noEstoque.adicionarProduto();
                     case 2 -> noEstoque.listarProdutos();
                     case 3 -> noEstoque.removerProduto();
+                    case 4 -> noEstoque.resumirEstoque();
                     case 0 -> {
                         System.out.println("\nFinalizando programa.");
                     }
