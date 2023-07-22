@@ -9,10 +9,11 @@ public class Main {
         int opcao=-1; // Variável usada para escolha de opção no menu (em formato de string pra simplificar o tratamento, eu fiz antes de descobrir como usava os tratamentos de exceções)
 
         do{ // Loop do menu
-            System.out.println("(1) Adicionar produto ao estoque");
+            System.out.println("\n(1) Adicionar produto ao estoque");
             System.out.println("(2) Listar produtos no estoque");
             System.out.println("(3) Remover produto do estoque");
             System.out.println("(4) Resumo dos produtos em estoque");
+            System.out.println("(5) Iniciar Interface Gráfica");
             System.out.println("(0) Finalizar programa");
             System.out.print("Insira uma opção: ");
 
@@ -24,6 +25,10 @@ public class Main {
                     case 2 -> noEstoque.listarProdutos();
                     case 3 -> noEstoque.removerProduto();
                     case 4 -> noEstoque.resumirEstoque();
+                    case 5 -> {
+                        Frame janela = new Frame();
+                        opcao = 0;
+                    }
                     case 0 -> {
                         System.out.println("\nFinalizando programa.");
                     }
